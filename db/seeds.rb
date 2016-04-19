@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+FILE_PATH = 'db/seed_data/20160406-record-collection.csv'
+
+CSV.foreach(FILE_PATH, headers: true) do |row|
+  Album.create(row.to_h)
+end

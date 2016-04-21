@@ -3,6 +3,10 @@ class AlbumsController < ApplicationController
     @albums = Album.order(artist: :asc)
   end
 
+  def show
+    @album = Album.find(params[:id])
+  end
+
   def by_artist
     @albums = Album.where(artist: params[:artist]).order(title: :asc)
     render :index
@@ -15,7 +19,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_create_params[:album])
     if(@album.save)
-      redirect_to root_path
+      redirect_to album_path(@album.id)
     else
       render :new
     end

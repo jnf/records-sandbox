@@ -4,9 +4,33 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'albums#index'
-  get '/albums/new' => 'albums#new'
-  post '/albums' => 'albums#create', as: 'albums'
-  get '/:artist' => 'albums#by_artist'
+
+  get  '/albums' => 'albums#index', as: 'albums'
+  post '/albums' => 'albums#create'
+  get  '/albums/new' => 'albums#new'
+  get  '/albums/:id' => 'albums#show', as: 'album'
+  # get '/artists/:artist' => 'albums#by_artist'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # get "/" => "home#index"
   # get "/rosa" => "home#rosa"
   # get "/:name" => "home#index"

@@ -10,5 +10,9 @@ require 'csv'
 FILE_PATH = 'db/seed_data/20160406-record-collection.csv'
 
 CSV.foreach(FILE_PATH, headers: true) do |row|
-  Album.create(row.to_h)
+  row_hash = row.to_h
+  artist_name = row_hash.delete("artist")
+
+  artist = Artist.find_or_create_by(name: artist_name)
+  artist.albums << Album.create(row_hash)
 end

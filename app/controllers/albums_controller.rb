@@ -1,15 +1,10 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.order(artist: :asc)
+    @albums = Album.order(:title)
   end
 
   def show
     @album = Album.find(params[:id])
-  end
-
-  def by_artist
-    @albums = Album.where(artist: params[:artist]).order(title: :asc)
-    render :index
   end
 
   def new

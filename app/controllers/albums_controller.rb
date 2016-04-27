@@ -8,14 +8,16 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @artists = Artist.select(:id, :name).order(:name)
     @album = Album.new
   end
 
   def create
     @album = Album.new(album_create_params[:album])
-    if(@album.save)
+    if @album.save
       redirect_to album_path(@album.id)
     else
+      @artists = Artist.select(:id, :name).order(:name)
       render :new
     end
   end
@@ -23,7 +25,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_create_params
-    params.permit(album: [:artist, :title])
+    params.permit(album: [:artist_id, :title, :label_code])
   end
 end
 

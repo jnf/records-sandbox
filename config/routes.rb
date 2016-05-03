@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'albums#index'
+
+  resources :users, :only => [:new, :create]
   resources :albums
 
   # Example of regular route:

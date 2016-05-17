@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   resources :users,    :only => [:new, :create]
   resources :sessions, :only => [:create]
-  # delete "/logout" => "sessions#destroy"
+  delete "/logout" => "sessions#destroy"
   # get    "/login"  => "sessions#new"
   resources :albums
+  get "/auth/:provider/callback" => "sessions#create"
 
   # Example of regular route:
    # get 'products/:id' => 'catalog#view'

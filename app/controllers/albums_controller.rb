@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  skip_before_action :require_login, only: :index
+
   def index
     @albums = Album.order(:title)
   end
@@ -28,20 +30,3 @@ class AlbumsController < ApplicationController
     params.permit(album: [:artist_id, :title, :label_code])
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,6 +26,9 @@ gem 'pg'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'omniauth'
+gem 'omniauth-github'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -35,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -51,18 +55,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

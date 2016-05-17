@@ -7,4 +7,9 @@
 jeremy:
   name: jeremy!
   email: nope!
-  password_digest: <%= BCrypt::Password.create('password', cost: 1) %>
+
+authUser:
+  email: "a@b.com"
+  name: "Ada"
+  uid: "1234"
+  provider: "github"

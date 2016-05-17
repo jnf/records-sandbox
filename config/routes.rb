@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :users,    :only => [:new, :create]
   resources :sessions, :only => [:create]
-  delete "/logout" => "sessions#destroy"
-  get    "/login"  => "sessions#new"
+  # delete "/logout" => "sessions#destroy"
+  # get    "/login"  => "sessions#new"
   resources :albums
 
   # Example of regular route:

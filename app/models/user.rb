@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, :name, :uid, :provider, presence: true
 
-  has_secure_password
+  def self.find_or_create_from_omniauth(auth_hash)
+    # Find or create a user
+  end
 
-  def self.log_in(email, password)
-    somebody = find_by(email: email)
-    somebody && somebody.authenticate(password)
+  def self.create_from_omniauth(auth_hash)
+    # Create a user
   end
 end

@@ -3,9 +3,11 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_from_omniauth(auth_hash)
     # Find or create a user
-  end
-
-  def self.create_from_omniauth(auth_hash)
-    # Create a user
+    # user = //something else here//
+    # if !user.nil?
+    #   return user that was found
+    # else
+    #   no user found, do something here
+    # end
   end
 end
